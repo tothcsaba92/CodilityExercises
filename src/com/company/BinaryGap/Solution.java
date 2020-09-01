@@ -1,6 +1,10 @@
 package com.company.BinaryGap;
 
 public class Solution {
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.solution(25));
+    }
 
     public int solution(int N) {
         int max_gap = 0;
@@ -8,7 +12,8 @@ public class Solution {
         boolean isCounting = false;
 
         while (N != 0) {
-            if (isCounting == false) {
+            if (!isCounting) {
+                //Sets each bit to 1 if both bits are 1
                 if ((N & 1) == 1) {
                     isCounting = true;
                 }
@@ -20,6 +25,7 @@ public class Solution {
                     current_gap = 0;
                 }
             }
+            //Shift right by pushing copies of the leftmost bit in from the left and letting the rightmost bits fall off
             N = N >> 1;
         }
         return max_gap;
