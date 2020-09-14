@@ -11,19 +11,16 @@ public class Solution {
         System.out.println(solution.solution(5, leaves));
     }
 
-    public int solution (int X, int[] A){
-        Set<Integer> numbers = new HashSet<>();
-        for (int i = 1; i <= X; i++) {
-            numbers.add(i);
-        }
+    public int solution(int X, int[] A) {
+        int jumps = X;
+        boolean[] leaves = new boolean[jumps+1];
+        for(int i = 0; i < A.length; i++){
+            if(!leaves[A[i]]){
+                leaves[A[i]] = true;
+                jumps--;
+                if(jumps == 0) return i;
+            }
 
-        for (int i = 0; i < A.length; i++) {
-            if( numbers.contains(A[i])){
-                numbers.remove(A[i]);
-            }
-            if(numbers.isEmpty()){
-                return i;
-            }
         }
         return -1;
     }
