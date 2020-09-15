@@ -1,6 +1,13 @@
 package com.company.PassingCars;
 
 public class Solution {
+    public static void main(String[] args) {
+        int [] carsPositions = new int[]{0,1,0,1,1};
+        Solution solution = new Solution();
+        System.out.println(solution.solution(carsPositions));
+    }
+
+
     public int solution(int [] A){
         int carsToEast = 0;
         int carsToWest = 0;
